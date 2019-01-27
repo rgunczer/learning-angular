@@ -1,0 +1,14 @@
+.hover-button-container:hover > i.hover-button {
+    visibility: inherit;
+}
+
+.hover-button-container:hover > [appHoverButton] {
+    padding-left: 26px;
+}
+
+i.hover-button {
+    visibility: hidden;
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+}
