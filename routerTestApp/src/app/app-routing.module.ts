@@ -6,20 +6,25 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'about',
     component: AboutComponent
   },
   {
+    path: 'about/:id',
+    component: AboutComponent
+  },
+  {
     path: '**',
-    redirectTo: 'home'
+    component: HomeComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
+  // imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
