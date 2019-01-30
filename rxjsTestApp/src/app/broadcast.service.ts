@@ -30,9 +30,7 @@ export class BroadcastService {
     }
 
     unsubscribe(name: string, listener: Function) {
-      debugger;
       this.listeners[name] = this.listeners[name].filter(x => x !== listener);
-      debugger;
     }
 
     publish(name: string, ...args: any[]): void {
