@@ -1,4 +1,6 @@
 <p>
   about works!
 </p>
-<button (click)="sendMessage()">Send Message</button>
+channel: <input type="text" #channel>
+msg: <input type="text" #msg>
+<button (click)="sendMessage(channel.value, msg.value)">Send Message</button>

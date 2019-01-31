@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { MessageService } from '../message.service';
+import { EventBusService } from '../event-bus.service';
 
 @Component({
   selector: 'app-about',
@@ -12,20 +12,24 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(private messages: MessageService) { }
+  constructor(private eventBus: EventBusService) { }
 
   ngOnInit() {
-    this.messages.getMessage()
-      .pipe(
-        takeUntil(this.ngUnsubscribe)
-      )
-    .subscribe( message => {
-      console.log('received: ', message);
-    });
+    this.eventBus.subscribe('jancsi')
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe( message => {
+        console.log('received jancsi: ', message);
+      });
+
+    this.eventBus.subscribe('vodka')
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(message => {
+        console.log('received vodka: ', message);
+      });
   }
 
-  sendMessage() {
-    this.messages.sendMessage('jancsi');
+  sendMessage(channel: string, msg: string): void {
+    this.eventBus.publish(channel, msg);
   }
 
   ngOnDestroy(): void {
