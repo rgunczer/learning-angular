@@ -1,0 +1,29 @@
+<p>
+  simple-form works!
+</p>
+<form #frm="ngForm" (ngSubmit)="submit()" autocomplete="off" novalidate>
+  <label>Name: </label>
+  <input type="text" name="name" id="name" ngModel required>
+  <br>
+  <br>
+  <label>Price: </label>
+  <!-- <input appCurrencyInput name="price" [(ngModel)]="price" [ngModelOptions]="{ updateOn: 'blur' }" required> -->
+  <input appCurrencyInput name="price" [(ngModel)]="price" required>
+  <br>
+  <!-- <label for="another-price">Another Price:</label> -->
+  <!-- <input type="text" id="another-price" name="another-price" [ngModel]="formatter(data)"  (ngModelChange)="parser($event)"> -->
+  <!-- <app-nested></app-nested> -->
+  <!-- data: {{ data }} -->
+  <br>
+  <br>
+  <!-- <input matInput type="text" placeholder="Test Price" name="testPrice"
+    [ngModel]="testPrice | currency:'USD':'symbol':'2.2'" [ngModelOptions]="{updateOn:'blur'}"
+    (ngModelChange)="testPrice=$event"/> -->
+  <br>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+
+{{ frm.value | json }}
+<br>
+{{ frm.errors | json }}
