@@ -1,10 +1,7 @@
 <h1>{{ '[' + title + ']' }}</h1>
 
-<select [(ngModel)]="selectedDay" >
-  <option
-  *ngFor='let day of days; let i = index'
-  [attr.data-index]="i"
-  [ngValue]="i">
+<select [(ngModel)]="selectedDay">
+  <option *ngFor='let day of days; let i = index' [attr.data-index]="i" [ngValue]="i">
     {{ day.today }}
   </option>
 </select>
