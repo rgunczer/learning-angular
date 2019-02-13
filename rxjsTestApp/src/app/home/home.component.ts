@@ -23,10 +23,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.broadcastService.subscribe('homie', this.onHomie);
   }
 
+  // class instance method
   private onHomie = () => {
     console.log('Home::homie ' + this.title);
   }
 
+  // class prototype method
   broadcast() {
     this.broadcastService.publish('homie');
   }

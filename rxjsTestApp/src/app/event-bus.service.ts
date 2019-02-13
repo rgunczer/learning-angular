@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Subscription, Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, takeUntil } from 'rxjs/operators';
 
 import { Event } from './event.model';
 
@@ -18,11 +18,12 @@ export class EventBusService {
     this.subject.next(msg);
   }
 
-  subscribe(channel: string): Observable<any> {
+  subscribe(channel: string, terminator: Subject<any>): Observable<any> {
     return this.subject
       .pipe(
         filter((msg: Event) => msg.name === channel),
-        map((msg: Event) => msg.payload)
+        map((msg: Event) => msg.payload),
+        takeUntil(terminator)
       );
   }
 

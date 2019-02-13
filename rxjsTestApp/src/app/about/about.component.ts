@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EventBusService } from '../event-bus.service';
 
@@ -10,19 +10,21 @@ import { EventBusService } from '../event-bus.service';
 })
 export class AboutComponent implements OnInit, OnDestroy {
 
+  private obs$: Observable<any>;
+  private subs$: Subscription;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(private eventBus: EventBusService) { }
 
   ngOnInit() {
-    this.eventBus.subscribe('jancsi')
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe( message => {
+    this.obs$ = this.eventBus.subscribe('jancsi', this.ngUnsubscribe);
+      // .pipe(takeUntil(this.ngUnsubscribe))
+    this.subs$ = this.obs$.subscribe( message => {
         console.log('received jancsi: ', message);
       });
 
-    this.eventBus.subscribe('vodka')
-      .pipe(takeUntil(this.ngUnsubscribe))
+    this.eventBus.subscribe('vodka', this.ngUnsubscribe)
+      // .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(message => {
         console.log('received vodka: ', message);
       });
@@ -35,6 +37,8 @@ export class AboutComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
+
+    console.log('subs.closed: ', this.subs$.closed);
   }
 
 }
