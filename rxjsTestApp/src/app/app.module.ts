@@ -16,7 +16,12 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'myCfgValue',
+      useValue: 'apple'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

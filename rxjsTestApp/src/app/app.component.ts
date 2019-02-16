@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rxjsTestApp';
+
+  constructor(@Inject('myCfgValue') private myConfigValue: string) {
+    console.log('ctor: ', myConfigValue);
+    console.log('new uid: ', uuid());
+  }
 }
