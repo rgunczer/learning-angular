@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 import { CommonApiService } from './common-api.service';
-// import { Util } from './util';
 
 function getRndInteger(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 
 @Component({
   selector: 'app-root',
