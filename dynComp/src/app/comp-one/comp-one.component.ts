@@ -1,21 +1,26 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { v4 as uuid } from 'uuid';
 
 @Component({
-  selector: 'app-comp-one',
-  templateUrl: './comp-one.component.html',
-  styleUrls: ['./comp-one.component.css']
+    selector: 'app-comp-one',
+    templateUrl: './comp-one.component.html'
 })
 export class CompOneComponent implements OnInit {
 
-  @Input()
-  text: string;
+    @Input() text: string;
 
-  constructor() { }
+    id: any;
 
-  ngOnInit() {
-  }
+    constructor() {
+        this.id = uuid();
+    }
 
-  click() {
-    alert('click: ' + this.text);
-  }
+    ngOnInit() {
+        console.log('CompOneComponent::ngOnInit', this.id);
+    }
+
+    click() {
+        alert('click: ' + this.text);
+    }
+
 }
