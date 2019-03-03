@@ -14,7 +14,7 @@ export class CompTwoComponent implements OnInit {
     }
 
     destroy() {
-        console.log('destroy me: ');
+        console.log('destroy me: ', this.age);
     }
 
 }

@@ -1,12 +1,14 @@
 import { Component, ViewChild, ComponentFactoryResolver, ViewContainerRef, OnInit, TemplateRef } from '@angular/core';
 import { CompOneComponent } from './comp-one/comp-one.component';
 import { DynService } from './dyn.service';
+import { of, from } from 'rxjs';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
+
     title = 'dynComp';
     text = '';
     comps: any[] = [];
@@ -20,10 +22,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.dyn.setContainer(this.container);
+        from([1, 2, 3, 4, 5, 6]).subscribe(num => console.log('got: ', num));
     }
 
     loadOne() {
-        // console.log('click');
+        console.log('loadOne');
         // const factory = this.resolver.resolveComponentFactory(CompOneComponent);
         // const compRef = this.container.createComponent(factory);
         // (<CompOneComponent>compRef.instance).text = 'Jancsi';
@@ -32,6 +35,7 @@ export class AppComponent implements OnInit {
     }
 
     loadTwo() {
+        console.log('loadTwo');
         this.dyn.create('two', '', Math.random());
     }
 
