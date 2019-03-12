@@ -1,0 +1,14 @@
+<p>Filters:</p>
+<button (click)="addFilterOne()">Add One</button>
+<button (click)="addFilterTwo()">Add Two</button>
+<button (click)="addFilterThree()">Add Three</button>
+&nbsp;
+<button (click)="removeOne()">Remove One</button>
+<hr>
+<div *ngFor="let filter of filters">
+    <div [ngSwitch]="filter.id">
+        <app-filter-one *ngSwitchCase="1" (talkBack)="onTalkBack($event)"></app-filter-one>
+        <app-filter-two *ngSwitchCase="2"></app-filter-two>
+        <app-filter-three *ngSwitchCase="3"></app-filter-three>
+    </div>
+</div>
