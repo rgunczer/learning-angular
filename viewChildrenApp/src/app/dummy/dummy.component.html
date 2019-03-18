@@ -1,0 +1,14 @@
+<p>
+  dummy works!
+</p>
+<button (click)="redraw()">Redraw</button>
+<button (click)="changeOneTodosProperty()">Change one todo prop [nothing changes]</button>
+<button (click)="changeOneTodosPropertyWorks()">Change one todo prop [works]</button>
+<hr>
+<app-todo-list *ngFor="let todo of todos" [todo]="todo"></app-todo-list>
+
+<hr>
+<button (click)="trigger()">manually trigger change detection</button>
+
+<button (click)="countTodos()">Count Todos</button>
+<button (click)="triggerChangeDetection()">Trigger Change Detection in Todos</button>
