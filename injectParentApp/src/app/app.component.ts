@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  title = 'injectParentApp1';
+
+  environment = environment;
+
+  constructor() {
+    console.log('here:', environment.test);
+    let var1 = "this.environment.test";
+    console.log(eval(var1));
+  }
 
   filters = [
     {
@@ -22,8 +30,7 @@ export class AppComponent {
     }
   ];
 
-  constructor() {
-  }
+
 
   addFilterOne() {
     this.filters.push({id: 1, name:'onee'});
