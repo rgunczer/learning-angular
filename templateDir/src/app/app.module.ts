@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { LeftNavComponent } from './left-nav/left-nav.component';
 import { SomeRouteComponent } from './some-route/some-route.component';
 import { OtherRouteComponent } from './other-route/other-route.component';
+import { LeftNavDirective } from './left-nav.directive';
+import { ThirdRouteComponent } from './third-route/third-route.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftNavComponent,
     SomeRouteComponent,
-    OtherRouteComponent
+    OtherRouteComponent,
+    LeftNavDirective,
+    ThirdRouteComponent
   ],
   imports: [
     BrowserModule,
