@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
   }
 
   setBgColor() {
+    const name = 'alma';
+
     this.bgColor = 'yellow';
     // this.commonService.name = 'jamie';
   }
