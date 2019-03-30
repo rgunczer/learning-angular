@@ -1,0 +1,40 @@
+<h2>Structural Directive Test</h2>
+<button (click)="condition = !condition">Toggle Condition</button>
+{{ condition }}
+<div *appUnless="condition">
+  This paragraph is displayed because the condition is false
+  <app-test></app-test>
+</div>
+
+<hr>
+
+Show countries only in <input type="checkbox" (change)="europeOnly = !europeOnly"> europe {{ europeOnly }}
+<div *ngFor="let c of countries">
+  <ng-container *ngIf="!europeOnly || c.continent === 'europe'">
+    {{ c | json }}
+  </ng-container>
+</div>
+
+<hr>
+
+<ng-template #headerButtons>
+  <button (click)="tabPanel.selectTab(loginTab)">Login</button>
+  <button (click)="tabPanel.selectTab(signupTab)">Sign Up</button>
+</ng-template>
+
+<!-- <app-tab-panel #tabPanel [headerTemplate]="headerButtons"> -->
+<app-tab-panel #tabPanel>
+  <app-tab title="Login" #loginTab>
+    <form>
+      <label>Email:</label>
+      <label>Password:</label>
+    </form>
+  </app-tab>
+  <app-tab title="Sign Up" #signupTab>
+    <form>
+      <label>Email:</label>
+      <label>Password:</label>
+      <label>Confirm Password:</label>
+    </form>
+  </app-tab>
+</app-tab-panel>
