@@ -1,0 +1,19 @@
+<ng-template #test1 let-arr="tabs">
+  <div>
+    <span>Some Sample Text</span>
+    <ul>
+      <li *ngFor="let name of arr; first as isFirst; last as isLast">
+        {{name}}
+        <span *ngIf="isFirst">FIRST</span>
+        <span *ngIf="isLast">LAST</span>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="test1; context:tabsContext"></ng-container>
+
+<hr>
+<h2>Here comes some injected template</h2>
+<br>
+<ng-container *ngTemplateOutlet="templateRef"></ng-container>

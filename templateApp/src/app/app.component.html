@@ -1,0 +1,39 @@
+<ng-template #simple>
+  <p>Some Template Text</p>
+</ng-template>
+
+<ng-template #complex>
+  <p>Complex Template Text</p>
+</ng-template>
+
+<button (click)="setTemplate(simple)">Simple Template</button>
+<button (click)="setTemplate(complex)">Complex Template</button>
+<button (click)="cycleTemplate()">Cycle</button>
+<br>
+<app-a [templateRef]="currentTemplate"></app-a>
+
+<hr>
+<!-- <p #dir="myCol" appColorizer color="orange">Some Text</p> -->
+<p #dir="myCol" colored color="orange">Some Text</p>
+
+<button (click)="dir.color = 'pink'">Experiment change color from template</button>
+<button (click)="changeColor()">Experiment change color from TS</button>
+
+<hr>
+
+<app-b></app-b>
+
+
+<hr>
+View:
+<button (click)="viewMode = 'card'">Card</button>
+<button (click)="viewMode = 'list'">List</button>
+<!-- <app-card-or-list-view [mode]="viewMode" [items]="items"></app-card-or-list-view> -->
+<app-card-or-list-view [mode]="viewMode" [items]="items">
+  <div *appCardItem>
+    Static Card Template
+  </div>
+  <div *appListItem>
+    Static List Template
+  </div>
+</app-card-or-list-view>

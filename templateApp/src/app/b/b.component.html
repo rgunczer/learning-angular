@@ -1,0 +1,17 @@
+<ng-template #titleTemplate let-titlez="title" let-subtitle="sub">
+  <h2>Some Big {{titlez}}</h2>
+  <h3>{{subtitle}}</h3>
+</ng-template>
+
+<p>b-works</p>
+
+<ng-container
+  [ngTemplateOutlet]="titleTemplate"
+  [ngTemplateOutletContext]="{title: 'footer', sub: 'some subtitle'}">
+</ng-container>
+
+<ng-container
+  [ngTemplateOutlet]="titleTemplate"
+  [ngTemplateOutletContext]="{title: 'Test', sub: 'some another subtitle'}">
+</ng-container>
+
