@@ -12,6 +12,8 @@ import { CarouselTestComponent } from './carousel-test/carousel-test.component';
 import { CarouselDirective } from './carousel-test/carousel.directive';
 import { StructuralDirTestAltComponent } from './structural-dir-test-alt/structural-dir-test-alt.component';
 import { JustDirective } from './structural-dir-test-alt/just.directive';
+import { ViewContainerTestComponent } from './view-container-test/view-container-test.component';
+import { TestCompComponent } from './view-container-test/test-comp/test-comp.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { JustDirective } from './structural-dir-test-alt/just.directive';
     CarouselTestComponent,
     CarouselDirective,
     StructuralDirTestAltComponent,
-    JustDirective
+    JustDirective,
+    ViewContainerTestComponent,
+    TestCompComponent
   ],
   imports: [
     BrowserModule
