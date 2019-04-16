@@ -20,7 +20,10 @@ export class UserState {
     }
 
     @Action(AddUser)
-    add({ getState, patchState }: StateContext<UserStateModel>, { payload }: AddUser) {
+    add(
+        { getState, patchState }: StateContext<UserStateModel>,
+        { payload }: AddUser
+    ) {
         const state = getState();
         patchState({
             users: [...state.users, payload]
