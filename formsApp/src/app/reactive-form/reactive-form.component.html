@@ -1,0 +1,35 @@
+<h2>ReactiveFormsModule</h2>
+<mat-card>
+  <mat-card-title>
+    Registration form
+  </mat-card-title>
+<form novalidate [formGroup]="myForm">
+  <input formControlName="first" placeholder="First name">
+  <br>
+  <input formControlName="last" placeholder="Last name">
+  <br>
+  <div formGroupName="account">
+    <label>Account</label>
+    <br>
+    <input type="text" formControlName="username" placeholder="Username">
+    <br>
+    <input type="text" formControlName="password" placeholder="Password">
+    <br>
+    <input type="text" formControlName="confirm" placeholder="Confirm password">
+  </div>
+  <br>
+  <label>Would you like to receive a newsletter?</label>
+  <!-- <input type="radio" value="yes" formControlName="newsletter">Yes
+  <input type="radio" value="no" formControlName="newsletter">No -->
+  <app-my-toggle formControlName="newsletter"></app-my-toggle>
+  <br>
+  <button>SUBMIT</button>
+</form>
+</mat-card>
+<hr>
+<p>Form: {{ myForm.value | json }}</p>
+<p>Form status: {{ myForm.status | json }}</p>
+<p>Password status: {{ myForm.get('account.password').status | json }}</p>
+<p>Account status: {{ myForm.get('account').errors | json }}</p>
+
+<button (click)="setDefaults()">Set Defaults</button>
