@@ -9,7 +9,7 @@ dat[environment.router.data.resourceName] = 'ORGANISATION';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'home/::id/edit',
     component: HomeComponent,
     data: dat
     // data: {
