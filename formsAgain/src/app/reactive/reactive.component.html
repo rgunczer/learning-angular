@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+  <form class="example-form" [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <mat-card-header>
+      <mat-card-title>Registration</mat-card-title>
+      <mat-card-subtitle>Reactive Form</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <input formControlName="userName" matInput placeholder="User Name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input formControlName="userPassword" matInput placeholder="User Password">
+      </mat-form-field>
+      <label id="example-radio-group-label">Receive newsletter?</label>
+      <mat-radio-group class="example-radio-group" formControlName="newsletter">
+        <mat-radio-button class="example-radio-button" value="yes">YES</mat-radio-button>
+        <mat-radio-button class="example-radio-button" value="no">NO</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [disabled]="!regForm.valid">Submit</button>
+      <button type="button" (click)="onReset()" mat-button>Reset</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
+<mat-card>
+  Form value: {{ regForm.value | json }}
+  Form valid: {{ regForm.valid }}
+</mat-card>

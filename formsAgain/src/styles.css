@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.basic-container {
+    padding: 30px;
+}
+
+.example-card {
+    max-width: 600px;
+    margin: 40px
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.example-radio-button {
+    margin: 5px;
+}
+
+.ball {
+    position: absolute;
+    background-color: blue;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+.ball-1 {
+    background-color: blue;
+}
+.ball-2 {
+    background-color: red;
+}
+.ball-3 {
+    background-color: pink;
+}
+.ball-4 {
+    background-color: yellow;
+}
+.ball-5 {
+    background-color: orange;
+}
+.ball-6 {
+    background-color: black;
+}
+

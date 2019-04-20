@@ -1,0 +1,21 @@
+<button mat-button [matMenuTriggerFor]="appMenu">Menu</button>
+<mat-menu #appMenu="matMenu">
+    <button mat-menu-item (click)="onRedial()">
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+    </button>
+    <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="appMenuSettings">Settings</button>
+<mat-menu #appMenuSettings="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+    <button mat-menu-item>Item 3</button>
+</mat-menu>
+
+<div class="mat-app-background basic-container">
+    <router-outlet></router-outlet>
+</div>
+
+<app-mouse-track-anim></app-mouse-track-anim>
