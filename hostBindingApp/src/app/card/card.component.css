@@ -1,0 +1,11 @@
+div {
+    border: 1px solid black;
+    width: 150px;
+    height: 100px;
+    margin: 6px;
+    border-radius: 14px;
+}
+
+.card-outline-primary {
+    background-color: orange;
+}
