@@ -22,11 +22,11 @@ export class AppComponent {
   }
 
   away() {
-    this.store.dispatch(awayScore())
+    this.store.dispatch(awayScore());
   }
 
   reset() {
-    this.store.dispatch(resetScore())
+    this.store.dispatch(resetScore());
   }
 
 }
