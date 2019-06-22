@@ -1,0 +1,25 @@
+<form novalidate autocomplete="off" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <label for="first-id">First name:</label>
+  <input id="first-id" ngModel name="first">
+  <br>
+  <label>Last name:</label>
+  <input ngModel name="last">
+  <br>
+  <ng-container ngModelGroup="pass" appPasswordMatcher #passwordGroup="ngModelGroup">
+    <label>Password:</label>
+    <input ngModel name="pwd">
+    <br>
+    <label>Password again:</label>
+    <input ngModel name="pwd2nd">
+  </ng-container>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+
+<pre>
+  {{ f.value | json }}
+  <br>
+  {{ f.control.status | json }}
+  <br>
+  {{ passwordGroup.control?.errors | json }}
+</pre>
