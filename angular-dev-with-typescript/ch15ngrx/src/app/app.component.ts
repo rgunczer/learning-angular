@@ -20,11 +20,13 @@ export class AppComponent {
 
   increment() {
     // this.counter++;
-    this.store.dispatch({type: INCREMENT});
+    // this.store.dispatch({type: INCREMENT});
+    this.store.dispatch(INCREMENT());
   }
 
   decrement() {
     // this.counter--;
-    this.store.dispatch({type: DECREMENT});
+    // this.store.dispatch({type: DECREMENT});
+    this.store.dispatch(DECREMENT());
   }
 }

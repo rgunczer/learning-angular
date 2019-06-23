@@ -1,16 +1,25 @@
-import { Action } from '@ngrx/store';
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
+import { Action, createAction, on, createReducer } from '@ngrx/store';
+// export const INCREMENT = 'INCREMENT';
+// export const DECREMENT = 'DECREMENT';
 
-export function counterReducer(state = 0, action: Action) {
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
+export const INCREMENT = createAction('INCREMENT');
+export const DECREMENT = createAction('DECREMENT');
 
-    case DECREMENT:
-      return state - 1;
+export const initialState = 0;
 
-    default:
-      return state;
-  }
-}
+// export function counterReducer(state = 0, action: Action) {
+export const counterReducer = createReducer(initialState,
+  // switch (action.type) {
+  //   case INCREMENT:
+  //     return state + 1;
+
+  //   case DECREMENT:
+  //     return state - 1;
+
+  //   default:
+  //     return state;
+  // }
+  on(INCREMENT, state => state + 1),
+  on(DECREMENT, state => state - 1)
+);
+// }
