@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import * as fromScoreboard from './scoreboard-page.reducer';
+import * as fromOther from './other-page.reducer';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import * as fromScoreboard from './scoreboard-page.reducer';
     BrowserModule,
     StoreModule.forRoot(
       {
-        game: fromScoreboard.reducer
+        game: fromScoreboard.reducer,
+        other: fromOther.reducer
       },
       {
         runtimeChecks: {
