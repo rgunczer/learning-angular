@@ -13,9 +13,11 @@ import { Navigate } from './shared/router.state';
 export class AppComponent {
 
   // state$: Observable<AppState>;
-  @Select() app$:
+  // @Select() app$:
 
-  constructor(private store: Store) {
+  constructor(
+    private store: Store
+  ) {
     // this.state$ = this.store.select(state => state.app);
   }
 

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 // store
 import { AppState } from './shared/app.state';
-import { RouterState } from './shared/router.state';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -18,10 +17,14 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxsModule.forRoot({
-      RouterState,
-      AppState
-    }),
+    NgxsModule.forRoot(
+      [
+        AppState
+      ],
+      {
+        developmentMode: true
+      }
+    ),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],
