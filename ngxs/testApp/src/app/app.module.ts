@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { AnimalsState } from './zoo.state';
+import { AnimalsState } from './animals.state';
 
 
 @NgModule({

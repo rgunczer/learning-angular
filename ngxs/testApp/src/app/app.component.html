@@ -1,1 +1,8 @@
 <h1>Test</h1>
+
+<input type="text" #txt>
+<button (click)="onAddAnimal(txt.value)">Add Animal</button>
+
+<ul>
+  <li *ngFor="let animal of animals$ | async">{{ animal }}</li>
+</ul>
