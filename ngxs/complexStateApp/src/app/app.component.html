@@ -1,0 +1,19 @@
+<h2>NGXS Complex Store</h2>
+
+<pre> {{ simple$ | async | json }} </pre>
+
+<hr>
+<input type="text" [(ngModel)]="name">
+<input type="checkbox" [(ngModel)]="feed">
+<button (click)="modify()">Modify</button>
+
+
+<hr>
+<h2>Books</h2>
+
+<ul>
+  <li *ngFor="let book of books$ | async">{{ book | json }}</li>
+</ul>
+
+<button (click)="addNewBook()">Add new book</button>
+<button (click)="getBooks()">Get Books</button>
