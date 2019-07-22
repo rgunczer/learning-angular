@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducer } from './state/reducer';
+import { DynamicComponent } from './dynamic/dynamic.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DynamicComponent
   ],
   imports: [
     BrowserModule,

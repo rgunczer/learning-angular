@@ -9,6 +9,7 @@ import { Store, select } from '@ngrx/store';
 export class AppComponent implements OnInit {
   title = 'ngrxDeborahStarter';
   isToggled: boolean;
+  showDynamicComponent = false;
 
   constructor(private store: Store<any>) {}
 
@@ -29,12 +30,9 @@ export class AppComponent implements OnInit {
     });
   }
 
-  toggle() {
-    console.log('toggle');
-    this.store.dispatch({
-      type: 'TOGGLE_CODE',
-      payload: true
-    });
+  toggleDynamicComponent() {
+    console.log('toggle dynamic component');
+    this.showDynamicComponent = !this.showDynamicComponent;
   }
 
 }

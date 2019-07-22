@@ -2,4 +2,6 @@
 
 <input type="checkbox" [checked]="isToggled" (change)="onChange($event.target.checked)" >
 
-<button (click)="toggle()">Toggle</button>
+<button (click)="toggleDynamicComponent()">Toggle Dynamic</button>
+
+<app-dynamic *ngIf="showDynamicComponent"></app-dynamic>
