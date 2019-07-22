@@ -14,7 +14,7 @@ import { reducer } from './state/reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducer),
+    StoreModule.forRoot({ app: reducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     })

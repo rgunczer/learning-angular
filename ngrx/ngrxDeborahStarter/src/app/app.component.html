@@ -1,2 +1,5 @@
 <p>AppComponent</p>
 
+<input type="checkbox" [checked]="isToggled" (change)="onChange($event.target.checked)" >
+
+<button (click)="toggle()">Toggle</button>
