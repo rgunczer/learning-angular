@@ -29,6 +29,7 @@ export class DialogContentComponent implements OnInit {
   }
 
   onOkClick() {
+    console.log('no thanks');
     this.dialogRef.close(this.localAnimal + 'AAA');
   }
 

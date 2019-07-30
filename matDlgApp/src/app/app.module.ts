@@ -9,12 +9,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+// modal dialogs
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
+import { ColumnVisibilityModalComponent } from './column-visibility-modal/column-visibility-modal.component';
+
+// store
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { EmployeesState } from './store/employees.state';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogContentComponent
+    DialogContentComponent,
+    ColumnVisibilityModalComponent
   ],
   imports: [
     FormsModule,
@@ -24,12 +32,19 @@ import { DialogContentComponent } from './dialog-content/dialog-content.componen
     MatButtonModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    NgxsModule.forRoot([
+      EmployeesState
+    ], {
+      developmentMode: true
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot({ maxAge: 25 })
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    DialogContentComponent
+    DialogContentComponent,
+    ColumnVisibilityModalComponent
   ]
 })
 export class AppModule { }

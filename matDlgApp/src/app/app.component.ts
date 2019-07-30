@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
+import { Store } from '@ngxs/store';
+import { OpenModal, OpenColumnModal } from './store/employees.state';
+import { ModalService } from './modal.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +15,12 @@ export class AppComponent {
   name = 'zebra';
   animal = 'coca';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    public store: Store,
+    public modalService: ModalService
+  ) {
+  }
 
   onPrimaryClick() {
     const dialogRef = this.dialog.open(DialogContentComponent, {
@@ -26,6 +34,18 @@ export class AppComponent {
         this.animal = result;
       }
     });
+  }
+
+  onTest() {
+    this.store.dispatch(new OpenModal());
+  }
+
+  onOpenColumnModal() {
+    this.store.dispatch(new OpenColumnModal());
+    // this.modalService.openColumnVisibilityModal(null)
+    //   .subscribe(result => {
+    //     console.log('resulta: ', result);
+    //   });
   }
 
 }
