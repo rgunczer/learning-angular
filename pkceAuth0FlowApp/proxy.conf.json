@@ -1,0 +1,8 @@
+{
+  "/oauth2/token": {
+    "target": "https://localhost:9443/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
