@@ -80,6 +80,7 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
+            "coverage": true
           }
         },
         "lint": {
