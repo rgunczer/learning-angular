@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-app';
+  counter = 0;
+
+  test() {
+    ++this.counter;
+
+    if (this.counter === 10) {
+      debugger;
+      alert('test');
+    }
+  }
 }
