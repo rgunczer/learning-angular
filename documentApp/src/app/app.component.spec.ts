@@ -27,7 +27,6 @@ describe('AppComponent', () => {
   });
 
   it('should render title', () => {
-    debugger;
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
