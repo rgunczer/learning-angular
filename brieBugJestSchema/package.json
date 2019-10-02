@@ -45,6 +45,8 @@
     "typescript": "~3.5.3"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["json", "html"],
     "preset": "jest-preset-angular",
     "roots": [
       "src"
