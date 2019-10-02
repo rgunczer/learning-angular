@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'documentApp'`, () => {
+  it(`should have as title 'brieBugJestSchema'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('documentApp');
+    expect(app.title).toEqual('brieBugJestSchema');
   });
 
   it('should render title', () => {
@@ -31,6 +31,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('documentApp app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('brieBugJestSchema app is running!');
   });
 });
