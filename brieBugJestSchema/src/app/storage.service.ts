@@ -13,4 +13,10 @@ export class StorageService {
     }
   };
 
+  session = {
+    get(key: string): any {
+      return sessionStorage.getItem(key);
+    }
+  };
+
 }

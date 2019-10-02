@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test:watch": "jest --watch"
@@ -45,8 +46,8 @@
     "typescript": "~3.5.3"
   },
   "jest": {
-    "collectCoverage": true,
-    "coverageReporters": ["json", "html"],
+    "collectCoverage": false,
+    "coverageReporters": ["text", "json", "html"],
     "preset": "jest-preset-angular",
     "roots": [
       "src"
