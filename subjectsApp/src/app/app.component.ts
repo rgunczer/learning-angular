@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
 
+import { PersonApiService } from './person-api.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +14,10 @@ export class AppComponent implements OnInit {
   behaviorSubject: BehaviorSubject<string>;
   replaySubject: ReplaySubject<string>;
 
+  constructor(private personApi: PersonApiService) {}
+
   ngOnInit() {
+    this.personApi.getPersons().subscribe(x => console.log(x));
     this.subject = new Subject();
 
     setTimeout(() => {
