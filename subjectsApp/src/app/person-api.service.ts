@@ -8,7 +8,11 @@ export class PersonApiService {
 
   constructor() { }
 
-  getPersons(): Observable<any> {
+  getPersons() {
+    return ['a', 'b', 'c'];
+  }
+
+  getPersonsObs(): Observable<any> {
     return of([
       {
         id: 1,

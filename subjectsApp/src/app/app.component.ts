@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private personApi: PersonApiService) {}
 
   ngOnInit() {
-    this.personApi.getPersons().subscribe(x => console.log(x));
+    this.personApi.getPersons(); // .subscribe(x => console.log(x));
     this.subject = new Subject();
 
     setTimeout(() => {

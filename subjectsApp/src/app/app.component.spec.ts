@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { PersonApiService } from './person-api.service';
 
@@ -8,6 +8,8 @@ const personsApiServiceMock = {
 };
 
 describe('AppComponent', () => {
+
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,14 +25,16 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+  });
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have as title 'subjectsApp'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('subjectsApp');
   });
@@ -43,6 +47,8 @@ describe('AppComponent', () => {
   // });
 
   it('should call "personApi getPersons method"', () => {
-    expect(personsApiServiceMock).toHaveBeenCalled();
+    fixture.detectChanges();
+
+    expect(personsApiServiceMock.getPersons).toHaveBeenCalled();
   });
 });
