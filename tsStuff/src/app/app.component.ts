@@ -55,7 +55,27 @@ export class AppComponent implements OnInit {
     console.log(propValue);
 
     this.messageBox('ok', 'apple is here');
-    this.messageBox('gunsnroses', 'hello')
+    this.messageBox('gunsnroses', 'hello');
+
+    this.foo('jancsi');
+    this.foo(2);
+    this.foo(() => { console.log('jebote') })
+  }
+
+  private foo(value: unknown) {
+    console.log(value);
+
+    if (typeof value === 'string') {
+      console.log(value.length);
+    }
+
+    if (typeof value === 'number') {
+      console.log(value * 2);
+    }
+
+    if (typeof value === 'function') {
+      value();
+    }
   }
 
 
