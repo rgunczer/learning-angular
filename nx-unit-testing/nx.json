@@ -1,0 +1,18 @@
+{
+  "npmScope": "nx-unit-testing",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "bootstrap-app-e2e": {
+      "tags": []
+    },
+    "bootstrap-app": {
+      "tags": []
+    }
+  }
+}
