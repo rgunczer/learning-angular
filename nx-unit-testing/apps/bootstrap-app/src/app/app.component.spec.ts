@@ -53,7 +53,7 @@ describe('AppComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  it('should call doStuff once modalService.messageBox returns "yes" ', () => {
+  it('should call doStuff once modalService.messageBox returns with "yes" ', () => {
     const subj = new Subject();
     const spyOnMessageBox = spyOn(modalService, 'messageBox').and.callFake(() => { return subj; });
     const spy = spyOn(component, 'doStuff').and.callFake(() => {});
