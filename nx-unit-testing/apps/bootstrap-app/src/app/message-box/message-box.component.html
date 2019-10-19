@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    <span>{{parameters.title}}</span>
+  </h4>
+</div>
+<div class="modal-body">
+  <p>{{parameters.message}}</p>
+</div>
+<div class="modal-footer">
+  <button *ngFor="let btn of parameters.buttons" type="button" class="btn"
+    (click)="onClick(btn.action)">{{btn.text}}
+  </button>
+</div>
