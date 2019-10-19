@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { BsModalRef } from 'ngx-bootstrap';
 
 // model
-import { MessageBoxParams } from '../_models';
+import { MessageBoxParams, MessageBoxActionResults } from '../_models';
 
 // component
 import { BaseModalComponent } from '../base-modal/base-modal.component';
@@ -28,7 +28,7 @@ export class MessageBoxComponent extends BaseModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(result: string) {
+  onClick(result: MessageBoxActionResults) {
     this.closeWithResult(result);
   }
 
