@@ -23,4 +23,8 @@ import { BaseModalComponent } from './base-modal/base-modal.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(
+  ) {
+  }
+}
