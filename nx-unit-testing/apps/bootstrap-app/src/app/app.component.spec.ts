@@ -41,30 +41,38 @@ describe('AppComponent', () => {
   });
 
   it('should call "openModal" method when clicked on Open Modal button ', () => {
-    const spy = spyOn(component, 'openModal').and.callFake(() => {});
+    component.openModal = jest.fn();
     fixture.debugElement.query(By.css('#btnOpenModal')).triggerEventHandler('click', null);
 
-    expect(spy).toHaveBeenCalled();
+    expect(component.openModal).toHaveBeenCalled();
   });
 
   it('should call modalService.messageBox when clicked on Open Modal button ', () => {
-    const spy = spyOn(modalService, 'messageBox').and.callFake(() => { return new Subject() });
+    // const spy = jest.spyOn(modalService, 'messageBox').mockImplementation(() => { return new Subject() });
+    modalService.messageBox = jest.fn(() => new Subject());
     fixture.debugElement.query(By.css('#btnOpenModal')).triggerEventHandler('click', null);
 
-    expect(spy).toHaveBeenCalled();
+    expect(modalService.messageBox).toHaveBeenCalled();
   });
 
   it('should call doStuff once modalService.messageBox returns with "yes" ', () => {
     const subj = new Subject<MessageBoxActionResults>();
-    const spyOnMessageBox = jest.spyOn(modalService, 'messageBox').mockImplementation(() => subj);
-    const spy = jest.spyOn(component, 'doStuff').mockImplementation(jest.fn);
+    // const spyOnMessageBox = jest.spyOn(modalService, 'messageBox').mockImplementation(() => subj);
+    // const spy = jest.spyOn(component, 'doStuff').mockImplementation(jest.fn);
+
+    modalService.messageBox = jest.fn(() => subj);
+    component.doStuff = jest.fn();
+
     fixture.debugElement.query(By.css('#btnOpenModal')).triggerEventHandler('click', null);
 
     subj.next('yes');
     fixture.detectChanges();
 
-    expect(spyOnMessageBox).toHaveBeenCalled();
-    expect(spy).toHaveBeenCalled();
+    // expect(spyOnMessageBox).toHaveBeenCalled();
+    // expect(spy).toHaveBeenCalled();
+
+    expect(modalService.messageBox).toHaveBeenCalled();
+    expect(component.doStuff).toHaveBeenCalled();
   });
 
 });
