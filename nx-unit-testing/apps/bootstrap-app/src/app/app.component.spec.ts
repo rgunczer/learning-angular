@@ -10,6 +10,7 @@ import {
 } from 'ngx-bootstrap';
 import { ModalService } from './service/modal.service';
 import { Subject } from 'rxjs';
+import { MessageBoxActionResults } from './_models';
 
 describe('AppComponent', () => {
 
@@ -54,9 +55,9 @@ describe('AppComponent', () => {
   });
 
   it('should call doStuff once modalService.messageBox returns with "yes" ', () => {
-    const subj = new Subject();
-    const spyOnMessageBox = spyOn(modalService, 'messageBox').and.callFake(() => { return subj; });
-    const spy = spyOn(component, 'doStuff').and.callFake(() => {});
+    const subj = new Subject<MessageBoxActionResults>();
+    const spyOnMessageBox = jest.spyOn(modalService, 'messageBox').mockImplementation(() => subj);
+    const spy = jest.spyOn(component, 'doStuff').mockImplementation(jest.fn);
     fixture.debugElement.query(By.css('#btnOpenModal')).triggerEventHandler('click', null);
 
     subj.next('yes');
