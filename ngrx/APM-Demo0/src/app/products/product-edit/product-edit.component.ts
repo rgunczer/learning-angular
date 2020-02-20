@@ -1,12 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Subscription } from 'rxjs';
+// import { Subscription } from 'rxjs';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { GenericValidator } from '../../shared/generic-validator';
 import { NumberValidators } from '../../shared/number.validator';
+
+// ngrx
+import { Store, select } from '@ngrx/store';
+import * as fromProduct from '../state/product.reducer';
+import * as fromActions from '../state/product.actions';
 
 @Component({
   selector: 'pm-product-edit',
@@ -19,16 +24,18 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   productForm: FormGroup;
 
   product: Product | null;
-  sub: Subscription;
+  // sub: Subscription;
 
   // Use with the generic validation message class
   displayMessage: { [key: string]: string } = {};
   private validationMessages: { [key: string]: { [key: string]: string } };
   private genericValidator: GenericValidator;
 
-  constructor(private fb: FormBuilder,
-              private productService: ProductService) {
-
+  constructor(
+    private store: Store<fromProduct.State>,
+    private fb: FormBuilder,
+    private productService: ProductService
+  ) {
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or database.
     this.validationMessages = {
@@ -61,9 +68,12 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       description: ''
     });
 
+    // TODO: unsubscribe
     // Watch for changes to the currently selected product
-    this.sub = this.productService.selectedProductChanges$.subscribe(
-      selectedProduct => this.displayProduct(selectedProduct)
+    // this.sub = this.productService.selectedProductChanges$.subscribe(
+    this.store.pipe(select(fromProduct.getCurrentProduct)).subscribe(
+      // selectedProduct => this.displayProduct(selectedProduct)
+      currentProduct => this.displayProduct(currentProduct)
     );
 
     // Watch for value changes
@@ -73,7 +83,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    // this.sub.unsubscribe();
   }
 
   // Also validate on blur
@@ -117,13 +127,15 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     if (this.product && this.product.id) {
       if (confirm(`Really delete the product: ${this.product.productName}?`)) {
         this.productService.deleteProduct(this.product.id).subscribe({
-          next: () => this.productService.changeSelectedProduct(null),
+          // next: () => this.productService.changeSelectedProduct(null),
+          next: () => this.store.dispatch(new fromActions.ClearCurrentProduct()),
           error: err => this.errorMessage = err.error
         });
       }
     } else {
       // No need to delete, it was never saved
-      this.productService.changeSelectedProduct(null);
+      // this.productService.changeSelectedProduct(null);
+      this.store.dispatch(new fromActions.ClearCurrentProduct());
     }
   }
 
@@ -137,12 +149,14 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
         if (p.id === 0) {
           this.productService.createProduct(p).subscribe({
-            next: product => this.productService.changeSelectedProduct(product),
+            // next: product => this.productService.changeSelectedProduct(product),
+            next: product => this.store.dispatch(new fromActions.SetCurrentProduct(product)),
             error: err => this.errorMessage = err.error
           });
         } else {
           this.productService.updateProduct(p).subscribe({
-            next: product => this.productService.changeSelectedProduct(product),
+            // next: product => this.productService.changeSelectedProduct(product),
+            next: product => this.store.dispatch(new fromActions.SetCurrentProduct(product)),
             error: err => this.errorMessage = err.error
           });
         }
