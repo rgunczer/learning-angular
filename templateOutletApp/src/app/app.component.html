@@ -1,0 +1,16 @@
+
+<router-outlet></router-outlet>
+
+<div class="container">
+  <h4>basic example</h4>
+  <ng-container [ngTemplateOutlet]="headerTemplate" [ngTemplateOutletContext]="{ $implicit: someText }">
+
+  </ng-container>
+</div>
+
+<ng-template #headerTemplate let-data>
+  <h2>This text is passed from ngTemplateOutlet</h2>
+  <p>
+    {{ data }}
+  </p>
+</ng-template>
