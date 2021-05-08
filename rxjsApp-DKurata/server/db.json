@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Apple",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Orange",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Hammer",
+      "categoryId": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Fruits"
+    },
+    {
+      "id": 2,
+      "name": "Tools"
+    }
+  ]
+}

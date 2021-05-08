@@ -1,0 +1,12 @@
+<p>product-list works!</p>
+
+<div *ngIf="products$ | async as products">
+  <button type="button"
+          *ngFor="let product of products" (click)="onSelect(product.id)">
+    {{product.name}} - ({{product.category}})
+  </button>
+</div>
+
+<pre *ngIf="selectedProduct$ | async as selectedProduct">
+  {{ selectedProduct | json }}
+</pre>
