@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class="content">
+
+    <h2>{{params.message}}</h2>
+
+  </div>
+
+    <div class="spacer"></div>
+
+  <div class="actions">
+    <button *ngFor="let action of params.actions" (click)="onAction(action)">{{action.text}}</button>
+  </div>
+
+</div>
