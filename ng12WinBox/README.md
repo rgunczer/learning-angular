@@ -2,6 +2,7 @@
 
 ## 3 type of samples:
 
+- Opening a plain WinBox modal (No Angular is involved)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
