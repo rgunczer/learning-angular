@@ -1,5 +1,8 @@
 # Angular 12 App using WinBox.js to display modal dialogs
 
+## 3 type of samples:
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
 ## Development server
