@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DialogService } from './dialog.service';
 import { MessageBoxComponent } from './message-box/message-box.component';
+import { Person } from './person';
+import { PersonDetailsDialogComponent } from './person-details-dialog/person-details-dialog.component';
 
 declare const WinBox: any;
 
@@ -11,6 +13,25 @@ declare const WinBox: any;
 })
 export class AppComponent {
   title = 'ng12WinBox';
+
+  rows: Person[] = [
+    {
+      id: 1,
+      name: 'Maximillian',
+      age: 12
+    },
+    {
+      id: 2,
+      name: 'Aloy',
+      age: 19
+    },
+    {
+      id: 3,
+      name: 'Eredin',
+      age: 30
+    }
+  ]
+
 
   constructor(
     private dialog: DialogService
@@ -40,8 +61,8 @@ export class AppComponent {
       );
   }
 
-  onFoo(): void {
-    this.dialog.openDialog(MessageBoxComponent, { title: 'MessageBox Demo', modal: true, data: { message: 'Some message' } })
+  onViewPerson(person: Person): void {
+    this.dialog.openDialog(PersonDetailsDialogComponent, { title: person.name, modal: false, data: person })
       .subscribe(result => {
         console.log('messageBox result: ', result);
       });
