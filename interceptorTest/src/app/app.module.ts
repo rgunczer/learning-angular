@@ -12,10 +12,12 @@ import { ResponseInterceptor } from './_interceptors/response-interceptor';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { TestingComponent } from './testing/testing.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,
