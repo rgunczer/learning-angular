@@ -3,6 +3,7 @@
 ## 3 type of samples:
 
 - Opening a plain WinBox modal (No Angular is involved)
+- Open a MessageBox Dialog as a Modal (one dialog active no further action is allowed until the modal is closed)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
