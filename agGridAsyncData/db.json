@@ -1,0 +1,33 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "make": "Toyota",
+      "model": "Celica"
+    },
+    {
+      "id": 2,
+      "make": "Ford",
+      "model": "Mondeo"
+    },
+    {
+      "id": 3,
+      "make": "Porsche",
+      "model": "Boxter"
+    }
+  ],
+  "prices": [
+    {
+      "id": 1,
+      "price": 10
+    },
+    {
+      "id": 2,
+      "price": 20
+    },
+    {
+      "id": 3,
+      "price": 100
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<p>preview works!</p>
+
+<ag-grid-angular
+    style="width: 800px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [getRowNodeId]="getRowNodeId"
+    (gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>
+
+<hr>
+
+<pre>
+  {{ rowData | json }}
+</pre>
